@@ -47,11 +47,18 @@ public class Program {
         System.out.println("Inserted! New ID = " + newseller.getId());
 
         System.out.println();
-        System.out.println("== Test 4: Seller Update ==");
+        System.out.println("== Test 5: Seller Update ==");
         seller = sellerDao.findById(1);
         seller.setName("Martha Wayne");
         sellerDao.update(seller);
         System.out.println("Update completed");
+
+        System.out.println();
+        System.out.println("== Test 6: Seller Delete ==");
+        System.out.print("Enter ID for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed");
 
         sc.close();
     }
