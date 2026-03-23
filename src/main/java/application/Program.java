@@ -7,6 +7,7 @@ import model.entities.Seller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -38,6 +39,13 @@ public class Program {
         for (Seller obj: list){
             System.out.println(obj);
         }
+
+        System.out.println();
+        System.out.println("== Test 4: Seller Insert ==");
+        Seller newseller = new Seller(null, "Greg", "greg@gmail.com", LocalDate.now(), 4000.00, department);
+        sellerDao.insert(newseller);
+        System.out.println("Inserted! New ID = " + newseller.getId());
+
         sc.close();
     }
 }
