@@ -1,5 +1,7 @@
 package application;
 
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -14,11 +16,11 @@ public class Program {
         Scanner sc = new Scanner(System.in);
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        Department obj = new Department(1, "Books");
-        Seller seller = new Seller(21, "Bob", "bob@gmail.com", LocalDate.parse("15/10/2000", fmt), 3000.00, obj);
-        System.out.println(obj);
-        System.out.println(seller);
+        SellerDao sellerDao = DaoFactory.createSellerDao();
 
+        Seller seller = sellerDao.findById(3);
+
+        System.out.println(seller);
         sc.close();
     }
 }
